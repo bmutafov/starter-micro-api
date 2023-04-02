@@ -7,7 +7,7 @@ console.log(process.env);
 const RANGE_START = parseInt(process.env.RANGE_START);
 const RANGE_END = parseInt(process.env.RANGE_END);
 
-if (!RANGE_START || !RANGE_END) {
+if (typeof RANGE_START !== "number" || RANGE_END !== "number") {
   console.error(
     `Need to configure both RANGE_START & RANGE_END .env variables`
   );

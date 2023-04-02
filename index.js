@@ -2,12 +2,10 @@ const http = require("http");
 const mongoose = require("mongoose");
 const axios = require("axios");
 
-console.log(process.env);
-
 const RANGE_START = parseInt(process.env.RANGE_START);
 const RANGE_END = parseInt(process.env.RANGE_END);
 
-if (typeof RANGE_START !== "number" || RANGE_END !== "number") {
+if (typeof RANGE_START !== "number" || typeof RANGE_END !== "number") {
   console.error(
     `Need to configure both RANGE_START & RANGE_END .env variables`
   );
@@ -94,7 +92,7 @@ async function parseResults(results) {
             upsert: true,
           }
         )
-        .save();
+        .exec();
     })
   );
 }

@@ -41,11 +41,11 @@ async function start() {
     });
 
     await parseResults(result.data.results);
-    await sleep(2_000);
+    await sleep(3_000);
     start += result.data.pagesize;
     if (start > RANGE_END) {
       start = RANGE_START;
-      await sleep(5_000);
+      await sleep(60_000);
     }
     totalCount = result.data.total_count;
   }

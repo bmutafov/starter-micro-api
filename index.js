@@ -2,6 +2,8 @@ const http = require("http");
 const mongoose = require("mongoose");
 const axios = require("axios");
 
+console.log(process.env);
+
 const RANGE_START = parseInt(process.env.RANGE_START);
 const RANGE_END = parseInt(process.env.RANGE_END);
 

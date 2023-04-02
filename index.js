@@ -100,3 +100,12 @@ async function parseResults(results) {
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+http
+  .createServer(function (req, res) {
+    console.log(`Just got a request at ${req.url}!`);
+    res.write(
+      "Running market updates range " + RANGE_START + " to " + RANGE_END
+    );
+    res.end();
+  })
+  .listen(process.env.PORT || 3000);

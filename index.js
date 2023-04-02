@@ -51,8 +51,6 @@ async function start() {
   }
 }
 
-start();
-
 async function querySteamMarket({ query, count, start }) {
   const searchParams = new URLSearchParams();
   searchParams.set("start", start?.toString() || "0");
@@ -100,9 +98,11 @@ async function parseResults(results) {
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
 http
   .createServer(function (req, res) {
     console.log(`Just got a request at ${req.url}!`);
+    start();
     res.write(
       "Running market updates range " + RANGE_START + " to " + RANGE_END
     );
